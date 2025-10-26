@@ -19,7 +19,7 @@ jobs:
           node-version: '18' # Specify Node.js version
 
       - name: Build
-        run: mvn build
+        run: mvn package
 
       - name: Run tests
         run: mvn test
