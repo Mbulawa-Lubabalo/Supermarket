@@ -1,5 +1,6 @@
 //------------- Modules ----------------
 import fetchData from "./fetchData.js";
+import addToCart from "./cart.js";
 
 let products = await fetchData();
 

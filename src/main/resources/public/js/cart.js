@@ -74,6 +74,11 @@ const showMessage = (content, type = 'info') => {
     document.body.style.overflow = 'hidden';
 }
 
+const hideMessage = () => {
+    messageBox.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
 
 const addToCart = (productId) => {
     const product = products.find(p => p.id === productId);
@@ -98,3 +103,7 @@ const addToCart = (productId) => {
     renderCart();
     showMessage(`${product.name} added to cart!`, 'info');
 }
+
+window.addToCart = addToCart;
+window.hideMessage = hideMessage;
+export default addToCart;
