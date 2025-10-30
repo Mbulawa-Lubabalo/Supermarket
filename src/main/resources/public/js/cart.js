@@ -47,3 +47,28 @@ const renderCart = () => {
     cartTotalDisplay.textContent = `R${total.toFixed(2)}`;
     updateCartIconCount(totalItems);
 }
+
+
+const addToCart = (productId) => {
+    const product = products.find(p => p.id === productId);
+
+    if (!product || product.stockQuantity === 0) {
+        console.error("Product not found or out of stock.");
+        showMessage("Sorry, that product is currently out of stock.", 'error');
+        return;
+    }
+
+    if (cart[productId]) {
+        if (cart[productId].quantity < product.stockQuantity) {
+            cart[productId].quantity += 1;
+        } else {
+            showMessage('Cannot add more: the maximum stock quantity has been reached!', 'info');
+            return;
+        }
+    } else {
+        cart[productId] = { product: product, quantity: 1 };
+    }
+
+    renderCart();
+    showMessage(`${product.name} added to cart!`, 'info');
+}
