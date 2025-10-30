@@ -11,15 +11,15 @@ const renderProducts = () => {
 
     products.forEach(product => {
         let stockClass = 'in-stock';
-        if (product.stockQuantity <= 0) {
+        if (product.stockquantity <= 0) {
             stockClass = 'out-of-stock';
-        } else if (product.stockQuantity <= 10) {
+        } else if (product.stockquantity <= 10) {
             stockClass = 'low-stock';
         }
 
-        const stockText = product.stockQuantity > 0 ? `${product.stockQuantity} in stock` : 'Out of Stock';
-        const buttonDisabled = product.stockQuantity === 0 ? 'disabled' : '';
-        const buttonText = product.stockQuantity === 0 ? 'Sold Out' : 'Add to Cart';
+        const stockText = product.stockquantity > 0 ? `${product.stockquantity} in stock` : 'Out of Stock';
+        const buttonDisabled = product.stockquantity === 0 ? 'disabled' : '';
+        const buttonText = product.stockquantity === 0 ? 'Sold Out' : 'Add to Cart';
 
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
