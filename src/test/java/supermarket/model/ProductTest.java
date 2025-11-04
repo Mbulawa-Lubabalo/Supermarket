@@ -8,10 +8,10 @@ public class ProductTest {
 
     @Test
     void testProductConstructorAndGetters() {
-        Product product = new Product(1L, "Apple", "Fresh apple", 1.0, 10);
+        Product product = new Product(1, "Apple", "Fresh apple", 1.0, 10);
 
 //        assertThat(product.getId()).isEqualTo(1L);
-        assertEquals(product.getId(), 1L, 0.001);
+        assertEquals(product.getId(), 1, 0.001);
         assertEquals(product.getName(), "Apple");
         assertEquals(product.getDescription(), "Fresh apple");
         assertEquals(product.getPrice(), 1.0, 0.01);
