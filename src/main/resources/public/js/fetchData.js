@@ -1,8 +1,8 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-const supabaseUrl = 'https://gddadnfbngafndmnbirp.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdkZGFkbmZibmdhZm5kbW5iaXJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2NTkzNjIsImV4cCI6MjA3NzIzNTM2Mn0.uOOqfJDHkqPsHoJXSJDM-rIJvuSwlF4p7DB0mDoCiUA';
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
+//const supabaseUrl = 'https://gddadnfbngafndmnbirp.supabase.co';
+//const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdkZGFkbmZibmdhZm5kbW5iaXJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2NTkzNjIsImV4cCI6MjA3NzIzNTM2Mn0.uOOqfJDHkqPsHoJXSJDM-rIJvuSwlF4p7DB0mDoCiUA';
+//const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 let products = [];
 
@@ -17,20 +17,48 @@ const loadingMessage = document.getElementById('loading-message');
 //    { id: 6, name: "Canned Tuna", price: 1.20, brand: "OceanCatch", stockQuantity: 150, category: "Canned Goods" },
 //];
 
-const { data, error } = await supabase
-  .from('products')
-  .select("*")
+//const { data, error } = await supabase
+//  .from('products')
+//  .select("*")
+//
+//console.log(data)
+//fetch("http://localhost:8080/api/products")
+//    .then(res => res.json())
+//    .then(data => console.log(data))
+//
+//const fetchData = async() => {
+//    await new Promise(resolve => setTimeout(resolve, 800));
+//    products = data;
+//    loadingMessage.classList.add('hidden');
+//
+//    return products
+//
+//}
 
-console.log(data)
+const fetchData = async () => {
+    try {
+        // Fetch data from backend
+        const res = await fetch("http://localhost:8080/api/products");
+        const data = await res.json();
 
+        // Optional: simulate loading delay
+        await new Promise(resolve => setTimeout(resolve, 800));
 
-const fetchData = async() => {
-    await new Promise(resolve => setTimeout(resolve, 800));
-    products = data;
-    loadingMessage.classList.add('hidden');
+        // Hide loading message (if element exists)
+//        const loadingMessage = document.getElementById('loadingMessage');
+        if (loadingMessage) {
+            loadingMessage.classList.add('hidden');
+        }
 
-    return products
+        // Return products
+        return data;
+    } catch (err) {
+        console.error("Error fetching products:", err);
+        return [];
+    }
+};
 
-}
+//export default fetchData;
+
 
 export default fetchData;
