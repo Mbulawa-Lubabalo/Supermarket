@@ -13,7 +13,7 @@ public class ProductTest {
 //        assertThat(product.getId()).isEqualTo(1L);
         assertEquals(product.getId(), 1, 0.001);
         assertEquals(product.getName(), "Apple");
-        assertEquals(product.getDescription(), "Fresh apple");
+        assertEquals(product.getBrand(), "Fresh apple");
         assertEquals(product.getPrice(), 1.0, 0.01);
         assertEquals(product.getStockQuantity(), 10);
 

@@ -20,6 +20,7 @@ public class ProductController {
 
     public List<Product> getAllProducts() throws Exception {
         try {
+            System.out.println(supabaseClient.fetchAllProducts());
             return supabaseClient.fetchAllProducts();
         } catch (Exception e) {
             throw new RuntimeException("Error fetching products", e);

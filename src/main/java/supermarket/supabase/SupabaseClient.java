@@ -24,7 +24,7 @@ public class SupabaseClient {
     }
 
     public List<Product> fetchAllProducts() throws Exception {
-        String table = "products"; // your table name in Supabase
+        String table = "products";
         String url = String.format("%s/rest/v1/%s", supabaseUrl, table);
 
         HttpRequest request = HttpRequest.newBuilder()
