@@ -22,8 +22,9 @@ public class Main {
 //        System.out.println("Created: " + created);
 
         // Get all products
-        List<Product> products = controller.getAllProducts();
-        System.out.println("All products: ");
-        products.forEach(System.out::println);
+//        List<Product> products = controller.getAllProducts();
+//        System.out.println("All products: ");
+//        products.forEach(System.out::println);
+        System.out.println(controller.getAllProducts());
     }
 }

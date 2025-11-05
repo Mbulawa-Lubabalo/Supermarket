@@ -14,6 +14,7 @@ public class ProductController {
 
     public List<Product> getAllProducts() {
         try {
+//            System.out.println(supabaseClient.fetchAllProducts());
             return supabaseClient.fetchAllProducts();
         } catch (Exception e) {
             e.printStackTrace();
