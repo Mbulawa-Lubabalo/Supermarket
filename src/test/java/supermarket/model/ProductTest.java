@@ -15,7 +15,7 @@ public class ProductTest {
         assertEquals(product.getName(), "Apple");
         assertEquals(product.getBrand(), "Fresh apple");
         assertEquals(product.getPrice(), 1.0, 0.01);
-        assertEquals(product.getStockQuantity(), 10);
+        assertEquals(product.getStockquantity(), 10);
 
     }
 

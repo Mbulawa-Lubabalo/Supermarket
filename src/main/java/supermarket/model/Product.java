@@ -34,7 +34,7 @@ public class Product {
     public String getName() {return this.name;}
     public String getBrand() {return this.brand;}
     public Double getPrice() {return this.price;}
-    public int getStockQuantity() {return this.stockquantity;}
+    public int getStockquantity() {return this.stockquantity;}
 
     public void setName(String productName) {
         this.name = productName;
