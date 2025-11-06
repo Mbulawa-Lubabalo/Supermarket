@@ -20,24 +20,14 @@ public class ProductController {
 
     public List<Product> getAllProducts() throws Exception {
         try {
-//            System.out.println(supabaseClient.fetchAllProducts());
             return supabaseClient.fetchAllProducts();
         } catch (Exception e) {
             throw new RuntimeException("Error fetching products", e);
         }
-
     }
-//        try {
-////            System.out.println(supabaseClient.fetchAllProducts());
-//            return supabaseClient.fetchAllProducts();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            throw new RuntimeException("Error fetching products", e);
-//        }
-//    }
+
     public void handleGetAllProducts(HttpExchange exchange) throws IOException {
         try {
-//            List<Product> products = supabaseClient.fetchAllProducts();
             String response = objectMapper.writeValueAsString(getAllProducts());
 
             exchange.getResponseHeaders().set("Content-Type", "application/json");

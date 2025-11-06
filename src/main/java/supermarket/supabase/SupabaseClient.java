@@ -40,7 +40,6 @@ public class SupabaseClient {
             throw new RuntimeException("Failed to fetch products: " + response.statusCode() + " -> " + response.body());
         }
 
-        // parse JSON into List<Product>
         List<Product> products = objectMapper.readValue(response.body(), new TypeReference<List<Product>>(){});
         return products;
     }
@@ -65,7 +64,6 @@ public class SupabaseClient {
             throw new RuntimeException("Failed to add product: " + response.statusCode() + " -> " + response.body());
         }
 
-        // parse the returned inserted product (assuming Supabase returns it)
         Product created = objectMapper.readValue(response.body(), Product.class);
         return created;
     }

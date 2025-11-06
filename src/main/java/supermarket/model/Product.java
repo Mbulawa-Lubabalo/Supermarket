@@ -39,7 +39,6 @@ public class Product {
     public void setName(String productName) {
         this.name = productName;
     }
-
     public void setPrice(double productPrice) {
         this.price = productPrice;
     }
@@ -49,7 +48,7 @@ public class Product {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            return mapper.writeValueAsString(this); //"Product{id=" + id + ", name='" + name + "', price=" + price + "}";
+            return mapper.writeValueAsString(this);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

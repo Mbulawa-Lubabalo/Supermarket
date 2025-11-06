@@ -10,7 +10,6 @@ public class ProductTest {
     void testProductConstructorAndGetters() {
         Product product = new Product(1, "Apple", "Fresh apple", 1.0, 10);
 
-//        assertThat(product.getId()).isEqualTo(1L);
         assertEquals(product.getId(), 1, 0.001);
         assertEquals(product.getName(), "Apple");
         assertEquals(product.getBrand(), "Fresh apple");
