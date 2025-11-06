@@ -10,6 +10,19 @@ import java.util.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+
+/**
+ * A lightweight client for interacting with the Supabase REST API.
+ * <p>
+ * This class provides methods for performing basic CRUD-like operations
+ * (currently fetching and adding products) using HTTP requests to the Supabase backend.
+ * </p>
+ *
+ * <p>
+ * It relies on the Java {@link java.net.http.HttpClient} for making HTTP requests
+ * and Jackson's {@link ObjectMapper} for JSON serialization and deserialization.
+ * </p>
+ */
 public class SupabaseClient {
     private final String supabaseUrl;
     private final String supabaseKey;
@@ -23,6 +36,17 @@ public class SupabaseClient {
         this.objectMapper = new ObjectMapper();
     }
 
+    /**
+     * Fetches all products from the "products" table in Supabase.
+     *
+     * <p>
+     * This method sends an authenticated {@code GET} request to the Supabase REST API endpoint
+     * for the "products" table and deserializes the JSON response into a list of {@link Product} objects.
+     * </p>
+     *
+     * @return a list of all products retrieved from Supabase
+     * @throws Exception if the HTTP request fails or the JSON cannot be parsed
+     */
     public List<Product> fetchAllProducts() throws Exception {
         String table = "products";
         String url = String.format("%s/rest/v1/%s", supabaseUrl, table);
@@ -44,6 +68,18 @@ public class SupabaseClient {
         return products;
     }
 
+    /**
+     * Adds a new product to the "products" table in Supabase.
+     *
+     * <p>
+     * This method sends a {@code POST} request to the Supabase REST API,
+     * containing the serialized JSON representation of a {@link Product}.
+     * </p>
+     *
+     * @param product the product to be added to the database
+     * @return the {@link Product} object returned by Supabase, which may include an auto-generated ID
+     * @throws Exception if the request fails or Supabase returns an error response
+     */
     public Product addProduct(Product product) throws Exception {
         String table = "products";
         String url = String.format("%s/rest/v1/%s", supabaseUrl, table);
