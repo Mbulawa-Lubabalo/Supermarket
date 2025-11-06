@@ -5,6 +5,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+
+/**
+ * Represents a product entity in the system.
+ * <p>
+ * This class models a product with attributes such as ID, name, brand, price, and stock quantity.
+ * It is designed to be serialized/deserialized using Jackson for easy conversion to and from JSON.
+ * Unknown JSON fields will be ignored during deserialization.
+ * </p>
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
 
@@ -43,6 +53,13 @@ public class Product {
         this.price = productPrice;
     }
 
+
+    /**
+     * Converts this Product object into a JSON string representation.
+     *
+     * @return JSON-formatted string of the product
+     * @throws RuntimeException if conversion to JSON fails
+     */
     @Override
     public String toString() {
         ObjectMapper mapper = new ObjectMapper();
