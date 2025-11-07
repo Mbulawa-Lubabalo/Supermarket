@@ -25,8 +25,7 @@ const renderProducts = () => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
 
-        // Using a utility function for price formatting to handle non-BigDecimals in mock data
-        const formatPrice = (p) => p.toFixed(2);
+const formatPrice = (p) => p.toFixed(2);
 
         productCard.innerHTML = `
             <div class="product-card-info">

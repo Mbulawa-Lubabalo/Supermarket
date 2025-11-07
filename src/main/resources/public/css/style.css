@@ -199,7 +199,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.stock-status.in-stock { color: #10b981; } /* green-600 */
+.stock-status.in-stock { color: var(--color-text-medium); /* #10b981; */} /* green-600 */
 .stock-status.low-stock { color: var(--color-accent); }
 .stock-status.out-of-stock { color: #dc2626; } /* red-600 */
 
