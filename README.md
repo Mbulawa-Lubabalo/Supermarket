@@ -9,9 +9,9 @@ Built **without frameworks** — using only the Java Standard Library (`HttpServ
 
 - ✅ Fetch all products from Supabase
 - ➕ Add new products to the database
-- ⚙️ Lightweight HTTP server (no Spring Boot or frameworks)
+- ⚙️ Lightweight HTTP server
 - 📦 JSON-based request/response handling
-- 🌐 CORS enabled (works with frontends like React or Vercel)
+
 
 ---
 
@@ -32,7 +32,7 @@ src/
 ⚙️ Requirements
 
 - Java 17+
-- Maven or Gradle (for dependencies)
+- Maven (for dependencies)
 - Supabase project with a products table
 
 ```test
@@ -50,31 +50,14 @@ src/
 
 🧠 **Setup Instructions**
 
-1️⃣ Clone the repository
+1️⃣ ***Clone the repository***
 
 - git clone https://github.com/your-username/Supermarket.git
 - cd Supermarket
 
 
-2️⃣ Add dependencies
-```test
-<dependencies>
-  <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.17.0</version>
-  </dependency>
-</dependencies>
-```
-
-3️⃣ Configure Supabase credentials
-
-- String url = "https://YOUR_PROJECT.supabase.co";
-- String key = "YOUR_SUPABASE_API_KEY";
-
-
-4️⃣ Run the server
-- ?????????????????????????????????????????
+4️⃣ ***Run the server***
+- mvn clean package exec:java
 
 
 🌐 API Endpoints
@@ -86,13 +69,13 @@ src/
 Response:
 ```text
 [
-{
-"id": 1,
-"name": "Laptop",
-"brand": "MSI",
-"price": 1200.0,
-"stockquantity": 5
-}
+    {
+    "id": 1,
+    "name": "Organic Apples",
+    "brand": "Woolworths",
+    "price": 34.99,
+    "stockquantity": 50
+    }
 ]
 ```
 
