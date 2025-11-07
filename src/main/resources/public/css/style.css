@@ -1,18 +1,18 @@
 
 
-/* CSS Variables for Color Palette */
+
 :root {
-    --color-primary: #059669; /* Emerald 600 */
-    --color-secondary: #3b82f6; /* Blue 500 */
-    --color-accent: #f59e0b; /* Amber 500 */
-    --color-background: #f9fafb; /* Gray 50 */
-    --color-text-dark: #1f2937; /* Gray 800 */
-    --color-text-medium: #6b7280; /* Gray 500 */
+    --color-primary: #059669;
+    --color-secondary: #3b82f6;
+    --color-accent: #f59e0b;
+    --color-background: #f9fafb;
+    --color-text-dark: #1f2937;
+    --color-text-medium: #6b7280;
     --color-white: #ffffff;
     font-family: 'Inter', sans-serif;
 }
 
-/* Base Styles */
+
 body {
     background-color: var(--color-background);
     min-height: 100vh;
@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-    max-width: 1280px; /* Equivalent to max-w-7xl */
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
@@ -46,8 +46,8 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--color-primary);
 }
 
@@ -55,29 +55,29 @@ body {
 .cart-icon-btn {
     position: relative;
     padding: 0.5rem;
-    border-radius: 9999px; /* rounded-full */
+    border-radius: 9999px;
     transition: background-color 0.15s ease-in-out;
     cursor: pointer;
     border: none;
     background: none;
 }
 .cart-icon-btn:hover {
-    background-color: #f3f4f6; /* gray-100 */
+    background-color: #f3f4f6;
 }
 
 .cart-icon {
     width: 1.5rem;
     height: 1.5rem;
-    color: #4b5563; /* gray-700 */
+    color: #4b5563;
 }
 
 .cart-item-count {
     position: absolute;
     top: -0.25rem;
     right: -0.25rem;
-    background-color: #ef4444; /* red-500 */
+    background-color: #ef4444;
     color: var(--color-white);
-    font-size: 0.75rem; /* text-xs */
+    font-size: 0.75rem;
     font-weight: 700;
     border-radius: 9999px;
     height: 1.25rem;
@@ -102,8 +102,8 @@ body {
 }
 
 .main-title {
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 800; /* font-extrabold */
+    font-size: 1.875rem;
+    font-weight: 800;
     color: var(--color-text-dark);
     margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--color-primary);
@@ -112,7 +112,7 @@ body {
 
 .main-layout {
     display: flex;
-    flex-direction: column; /* Stacked on mobile */
+    flex-direction: column;
     gap: 2rem;
 }
 
