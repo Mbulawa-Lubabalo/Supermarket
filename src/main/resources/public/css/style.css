@@ -2,8 +2,8 @@
 
 
 :root {
-    --color-primary: #059669;
-    --color-secondary: #3b82f6;
+    --color-primary: #FF5349; /* #059669; */
+    --color-secondary: orange; /* #3b82f6; */
     --color-accent: #f59e0b;
     --color-background: #f9fafb;
     --color-text-dark: #1f2937;
@@ -48,7 +48,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color:#FF5349; /* var(--color-primary); */
 }
 
 /* Cart Icon */
@@ -106,7 +106,7 @@ body {
     font-weight: 800;
     color: var(--color-text-dark);
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-secondary);/* var(--color-primary); */
     padding-bottom: 0.5rem;
 }
 
@@ -189,7 +189,7 @@ body {
 .product-price {
     font-size: 1.875rem; /* text-3xl */
     font-weight: 800;
-    color: var(--color-primary);
+    color: var(--color-text-dark); /* var(--color-primary); */
     margin-bottom: 0.5rem;
 }
 
@@ -216,7 +216,7 @@ body {
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
-    background-color: #2563eb; /* blue-600 */
+    background-color: #fc6203 /* #2563eb; */ /* blue-600 */
 }
 
 .add-to-cart-btn:disabled {
