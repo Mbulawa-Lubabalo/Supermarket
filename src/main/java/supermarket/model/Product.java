@@ -23,14 +23,16 @@ public class Product {
     private String brand;
     private Double price;
     private int stockquantity;
+    private String category;
 
     public Product() {}
-    public Product(Integer id, String name, String brand, Double price, int stockquantity) {
+    public Product(Integer id, String name, String brand, Double price, int stockquantity, String category) {
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.stockquantity = stockquantity;
+        this.category = category;
     }
 
     public Product(Integer id, String name, Double price) {
@@ -45,6 +47,7 @@ public class Product {
     public String getBrand() {return this.brand;}
     public Double getPrice() {return this.price;}
     public int getStockquantity() {return this.stockquantity;}
+    public String getCategory() {return category;}
 
     public void setName(String productName) {
         this.name = productName;

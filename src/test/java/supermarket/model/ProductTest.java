@@ -8,7 +8,7 @@ public class ProductTest {
 
     @Test
     void testProductConstructorAndGetters() {
-        Product product = new Product(1, "Apple", "Fresh apple", 1.0, 10);
+        Product product = new Product(1, "Apple", "Fresh apple", 1.0, 10, "Bakery");
 
         assertEquals(product.getId(), 1, 0.001);
         assertEquals(product.getName(), "Apple");
