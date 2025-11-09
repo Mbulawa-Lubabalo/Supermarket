@@ -52,7 +52,7 @@ src/
 
 1️⃣ ***Clone the repository***
 
-- git clone https://github.com/your-username/Supermarket.git
+- git clone https://github.com/Mbulawa-Lubabalo/Supermarket.git
 - cd Supermarket
 
 
