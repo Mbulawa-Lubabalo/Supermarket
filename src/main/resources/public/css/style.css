@@ -233,7 +233,7 @@ body {
 
 /* Cart Sidebar */
 .cart-sidebar {
-    position: fixed;
+    position: sticky;
     right: 0;
     top: 0;
     height: 100%;
