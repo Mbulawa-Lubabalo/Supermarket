@@ -134,6 +134,21 @@ const addToCart = (productId) => {
 //    showMessage(`${product.name} added to cart!`, 'info');
 }
 
+const checkout = () => {
+    const total = cartTotalDisplay.textContent;
+    if (Object.keys(cart).length === 0) {
+        showMessage("Your cart is empty. Please add items before checking out.", 'info');
+        return
+    }
+    showMessage(`--- Checkout Successful ---\nTotal charged: ${total}\nYour order has been placed!`, " info");
+
+    cart = {};
+    renderCart();
+
+}
+
+
+window.checkout = checkout;
 window.updateCartQuantity = updateCartQuantity;
 window.addToCart = addToCart;
 window.hideMessage = hideMessage;
