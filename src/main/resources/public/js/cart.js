@@ -8,9 +8,11 @@ let cart = {};
 const cartItemsContainer = document.getElementById('cart-items-container');
 const emptyCartMessage = document.getElementById('empty-cart-message');
 const cartTotalDisplay = document.getElementById('cart-total');
+const cartItemCount = document.getElementById('cart-item-count');
 const messageBox = document.getElementById('message-box');
 const messageContent = document.getElementById('message-content');
 const messageIcon = document.getElementById('message-icon');
+
 
 const renderCart = () => {
     const cartItemKeys = Object.keys(cart);
@@ -49,6 +51,34 @@ const renderCart = () => {
 
     cartTotalDisplay.textContent = `R${total.toFixed(2)}`;
     updateCartIconCount(totalItems);
+}
+
+const updateCartIconCount = (count) => {
+    cartItemCount.textContent = count;
+    if (count > 0) {
+        cartItemCount.classList.add('visible');
+    } else {
+        cartItemCount.classList.remove('visible');
+    }
+}
+
+const updateCartQuantity = (productId, count) => {
+    const item = cart[productId];
+    const product = products.find(p => p.id === productId);
+
+    if (!item || !product) return;
+
+    const newQuantity = item.quantity + count;
+
+    if (newQuantity <= 0) {
+        delete cart[productId];
+    } else if (newQuantity > product.stockQuantity) {
+         showMessage('Cannot add more: the maximum stock quantity has been reached!', 'info');
+         return;
+    } else {
+        item.quantity = newQuantity;
+    }
+    renderCart();
 }
 
 
@@ -101,9 +131,10 @@ const addToCart = (productId) => {
     }
 
     renderCart();
-    showMessage(`${product.name} added to cart!`, 'info');
+//    showMessage(`${product.name} added to cart!`, 'info');
 }
 
+window.updateCartQuantity = updateCartQuantity;
 window.addToCart = addToCart;
 window.hideMessage = hideMessage;
 export default addToCart;
