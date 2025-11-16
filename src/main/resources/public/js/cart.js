@@ -149,7 +149,7 @@ const checkout = async () => {
     }
     console.log(cart)
     const productList = Object.values(cart)
-        .map(item => item.product.name)
+        .flatMap(item => Array(item.quantity).fill(item.product.name))
         .join(", ");
 
     const { data, error } = await supabase
