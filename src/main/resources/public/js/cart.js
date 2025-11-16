@@ -1,5 +1,6 @@
 
 import fetchData from "./fetchData.js";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 let products = await fetchData();
 let cart = {};
@@ -12,6 +13,12 @@ const cartItemCount = document.getElementById('cart-item-count');
 const messageBox = document.getElementById('message-box');
 const messageContent = document.getElementById('message-content');
 const messageIcon = document.getElementById('message-icon');
+
+
+const supabase = createClient(
+    "https://gddadnfbngafndmnbirp.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdkZGFkbmZibmdhZm5kbW5iaXJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2NTkzNjIsImV4cCI6MjA3NzIzNTM2Mn0.uOOqfJDHkqPsHoJXSJDM-rIJvuSwlF4p7DB0mDoCiUA"
+    );
 
 
 const renderCart = () => {
@@ -134,14 +141,37 @@ const addToCart = (productId) => {
 //    showMessage(`${product.name} added to cart!`, 'info');
 }
 
-const checkout = () => {
+const checkout = async () => {
     const total = cartTotalDisplay.textContent;
     if (Object.keys(cart).length === 0) {
         showMessage("Your cart is empty. Please add items before checking out.", 'info');
         return
     }
+    console.log(cart)
+    const productList = Object.values(cart)
+        .map(item => item.product.name)
+        .join(", ");
+
+    const { data, error } = await supabase
+        .from("orders")
+        .insert({
+            product_list: productList,
+            date_purchased: new Date().toISOString().split("T")[0]
+        })
+        .select();
+
+    console.log(data)
+
+    if (error) {
+        console.error("Supabase insert error:", error);
+        showMessage("Something went wrong saving your order.", "error");
+        return;
+    }
+
+    console.log(data)
     showMessage(`--- Checkout Successful ---\nTotal charged: ${total}\nYour order has been placed!`, " info");
 
+    console.log(cart)
     cart = {};
     renderCart();
 
