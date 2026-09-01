@@ -21,7 +21,12 @@ jobs:
           cache: maven
           
       - name: Build
-        run: mvn package
+        run: mvn clean package
 
       - name: Run tests
         run: mvn test
+
+      - name: Run Java Server in Background
+        run: |
+          java -jar target/*.jar &
+          sleep 10 # Give the server a few seconds to start up
