@@ -7,7 +7,7 @@ const loadingMessage = document.getElementById('loading-message');
 const fetchData = async () => {
     try {
         // Fetch data from backend
-        const res = await fetch("http://localhost:8080/api/products");
+        const res = await fetch("https://supermarket-6hqb.onrender.com/api/products");
         const data = await res.json();
 
         await new Promise(resolve => setTimeout(resolve, 800));
